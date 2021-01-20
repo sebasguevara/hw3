@@ -43,7 +43,7 @@ function pageLoad() {
   let passenger3
   // What is levelOfService?
 
-  levelOfService = 'Noober'
+  levelOfService = 'Noober X'
 
   passenger1 = ride[0]
   passenger1Name = passenger1.passengerDetails.first + ' ' + passenger1.passengerDetails.last
@@ -53,7 +53,13 @@ function pageLoad() {
   passenger1PickupAddressLine2 = passenger1.pickupLocation.city + ', ' + passenger1.pickupLocation.state + ' ' + passenger1.pickupLocation.zip
   passenger1DropoffAddressLine1 = passenger1.dropoffLocation.address
   passenger1DropoffAddressLine2 = passenger1.dropoffLocation.city + ', ' + passenger1.dropoffLocation.state + ' ' + passenger1.dropoffLocation.zip
-  console.log('level one')
+  // console.log('level one')
+  if (passenger1.purpleRequested){
+    levelOfService = 'Noober Purple'
+  }
+  if (passenger1.numberOfPassengers > 3 ) {
+    levelOfService = 'Noober XL'
+  }
 
   if (ride.length == 2) { //console.log('level two')
     passenger2 = ride[1]
@@ -64,6 +70,9 @@ function pageLoad() {
     passenger2PickupAddressLine2 = passenger2.pickupLocation.city + ', ' + passenger2.pickupLocation.state + ' ' + passenger2.pickupLocation.zip
     passenger2DropoffAddressLine1 = passenger2.dropoffLocation.address
     passenger2DropoffAddressLine2 = passenger2.dropoffLocation.city + ', ' + passenger2.dropoffLocation.state + ' ' + passenger2.dropoffLocation.zip
+    if (passenger1NumberOfPassengers == 1 && passenger2NumberOfPassengers ==1 ) {
+      levelOfService = 'Noober Pool'
+    }
   } else if (ride.length > 2) { //console.log('level three')
     passenger2 = ride[1]
     passenger2Name = passenger2.passengerDetails.first + ' ' + passenger2.passengerDetails.last
@@ -82,7 +91,9 @@ function pageLoad() {
     passenger3PickupAddressLine2 = passenger3.pickupLocation.city + ', ' + passenger3.pickupLocation.state + ' ' + passenger3.pickupLocation.zip
     passenger3DropoffAddressLine1 = passenger3.dropoffLocation.address
     passenger3DropoffAddressLine2 = passenger3.dropoffLocation.city + ', ' + passenger3.dropoffLocation.state + ' ' + passenger3.dropoffLocation.zip
-
+    if (passenger1NumberOfPassengers == 1 && passenger2NumberOfPassengers ==1 && passenger3NumberOfPassengers ==1 ) {
+      levelOfService = 'Noober Pool'
+    }
   }
   
 
